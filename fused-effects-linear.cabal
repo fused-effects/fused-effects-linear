@@ -21,8 +21,9 @@ source-repository head
   location:            https://github.com/patrickt/fused-effects-linear.git
 
 common common-options
-  build-depends:       base ^>= 4.13.0.0
-  
+  build-depends:       base ^>= 4.15.0.0
+                     , linear-base
+
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities
@@ -43,16 +44,8 @@ common common-options
 library
   import:              common-options
   hs-source-dirs:      src
-  exposed-modules:     FusedEffectsLinear
-
-executable fused-effects-linear
-  import:              common-options
-  hs-source-dirs:      app
-  main-is:             Main.hs
-  build-depends:       fused-effects-linear
-  ghc-options:         -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
+  exposed-modules:     Control.Algebra.Linear
+                       Control.Algebra.Linear.Handler
 
 test-suite fused-effects-linear-test
   import:              common-options
